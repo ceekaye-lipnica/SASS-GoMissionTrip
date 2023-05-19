@@ -1,0 +1,34 @@
+@mixin mediaQuery($width: 48rem) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin imgFit($width: 200px, $height: 200px) {
+  width: $width;
+  height: $height;
+  object-fit: cover;
+  object-fit: center center;
+  display: block;
+}
+
+@mixin btn($bg) {
+  display: inline-block;
+  padding: 1rem 1.6rem;
+  border-radius: 0.5rem;
+  color: $clr-light;
+  font-size: 1.5rem;
+  background: $bg;
+}
+
+@mixin grid($cols: 1, $gap: 1rem) {
+  display: grid;
+  grid-template-columns: repeat($cols, 1fr);
+  grid-gap: $gap;
+}
+
+@mixin centerAll{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

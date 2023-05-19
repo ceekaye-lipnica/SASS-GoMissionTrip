@@ -1,0 +1,113 @@
+/*-----------REPEATABLE PATTERNS---------------*/
+.btn {
+    display: inline-block;
+    padding: 1rem 1.5rem;
+    border-radius: 5rem;
+}
+
+.btn.blue {
+    background: $blue;
+    color: $light;
+    transition: .5s ease;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: 2px solid $blue;
+}
+
+.btn.blue:hover {
+    background-color: #0d3362;
+    border: 2px solid #0d3362;
+    transition: .5s ease;
+}
+.btn.blueWhite {
+    background: $blue;
+    color: $light;
+    transition: .5s ease;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: 2px solid $light;
+}
+
+.btn.blueWhite:hover {
+    background-color: $light;
+    border: 2px solid $light;
+    color: $blue;
+    transition: .5s ease;
+}
+
+.btn.white {
+    background: $light;
+    color: $blue;
+    transition: .5s ease;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border: 2px solid $light;
+}
+
+.btn.white:hover {
+    background-color: $blue;
+    border: 2px solid $light;
+    color: $light;
+    transition: .5s ease;
+}
+
+.btn.whiteBlue {
+    background: $light;
+    color: $blue;
+    transition: .5s ease;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border: 2px solid $blue;
+}
+
+.btn.whiteBlue:hover {
+    background-color: $blue;
+    border: 2px solid $blue;
+    color: $light;
+    transition: .5s ease;
+}
+
+@for $i from 0 through 20{
+    .mr--#{$i}{
+        margin-right: $i + rem;
+    }
+}
+
+$colors:(
+    "dark": $black,
+    "blue": $blue,
+    "yellow": $yellow,
+    "light": $light
+);
+
+@each $key, $val in $colors{
+    .text{
+        &--#{$key}{
+            color: $val;
+        }
+    }
+}
+
+$displays: flex, block, inline, inline-block;
+
+@each $display in $displays{
+
+    .d{
+        &--#{$display}{
+            display: $display;
+        }
+    }
+}
+
+$alignments: (
+    "center" : center,
+    "between" : space-between,
+);
+
+@each $key, $val in $alignments{
+    .text{
+        &--#{$key}{
+            text-align: $val;
+        }
+    }
+}

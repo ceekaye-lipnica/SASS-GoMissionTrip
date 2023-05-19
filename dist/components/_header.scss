@@ -1,0 +1,185 @@
+.header{
+    background: transparent;
+    // background: pink;
+    position: relative;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+
+    .container{
+        padding: .5rem 2.5rem .5rem 1rem;
+    }
+
+    &.blue{
+        background: $blue;
+    }
+
+    &__wrapper{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .branding{
+        img{
+            width: 20rem;
+        }
+    }
+
+    .nav2{
+        display: none;
+    }
+
+    .nav{
+        position: absolute;
+        background: $light;
+        height: 100vh;
+        width: 100%;
+        right: -100rem;
+        top: 0;
+        transition: .5s ease;
+
+
+        &.open{
+            right: 0;
+            transition: .5s ease;
+        }
+
+        ul{
+            padding-top: 15rem;
+            li{
+                text-align: center;
+                padding: 1.5rem;
+                font-size: 1.5rem;
+                font-weight:600;
+
+                &:hover{
+                    cursor: pointer;
+                }
+
+                a{
+                    color: $black;
+
+                    &:hover{
+                        color: $blue;
+                    }
+                }
+            }
+        }
+
+        .button{
+            padding-top: 1.5rem ;
+            display: flex;
+            margin: 0 1rem 0 1rem;
+
+            a{
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+    }
+
+    .toggle__menu{
+        border-radius: 5rem;
+        padding: 1rem 1rem;
+        z-index: 999;
+    
+        &:hover{
+        cursor: pointer;
+        border-radius: 5rem;
+        padding: 1rem 1rem;
+        }
+
+        span{
+            z-index: 999;
+            width: 2.5rem;
+            height: .2rem;
+            background: $light;
+            display: block;
+            border-radius: 5rem;
+            transition: .5s ease;
+
+            
+            &:nth-child(2){
+                margin: .5rem 0;
+            }
+        }
+
+        &.open{
+            
+            span{
+                background: $black;
+
+                &:first-child{
+                    transform: translate(0, 10px) rotate(45deg);
+                    transition: .5s ease;
+                }
+                &:last-child{
+                    transform: translate(0, -4px) rotate(-45deg);
+                    transition: .5s ease;
+                }
+                &:nth-child(2){
+                    opacity: 0;
+                    transition: .5s ease;
+                }
+            }
+        }
+        
+    }
+
+    @include mediaQuery(1080px){
+
+        .container{
+            padding: 1rem 1.5rem;
+        }
+
+        .nav{
+            display: none;
+        }
+
+        .toggle__menu{
+            display: none;
+        }
+
+        .nav2{
+            display: unset;
+        }
+
+        .branding{
+            img{
+                width: 27.5rem;
+            }
+        }
+
+        .nav2{
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-left: 15rem;
+            margin-right: 3rem;
+
+            ul{
+                display: flex;
+                align-items: center;
+                gap: 2.8rem;
+
+                li{
+                    a{
+                        color: $light;
+                        font-size: 1.4rem;
+                        font-weight: 700;
+                    }
+                }
+            }
+
+            .button{
+                .btn.blueWhite{
+                    padding: 1rem 3rem;
+                    font-weight: 700;
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+
+}
